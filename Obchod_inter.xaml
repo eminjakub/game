@@ -1,0 +1,91 @@
+<Page x:Class="game.Obchod_inter"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:game"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Obchod_inter" Height="720" Width="1280">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="689*"/>
+        </Grid.RowDefinitions>
+        <Image Margin="-26,-18,0,-18" Stretch="Fill" Source="./fotky/obchod_inter.png" Grid.RowSpan="2"/>
+
+        <!-- Top bar -->
+        <Border Background="#CC000000" CornerRadius="6" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,8,20,0" Padding="12,4" Grid.RowSpan="2">
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/fotky/piggy_money.png" Height="30" Width="30" Margin="0,0,8,0"/>
+                <Label x:Name="money_label" Content="0" Style="{StaticResource GameLabelGold}" FontSize="20" VerticalAlignment="Center"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Home button -->
+        <Button Click="Get_home" HorizontalAlignment="Left" VerticalAlignment="Top" Height="70" Width="70" Grid.RowSpan="2" Background="{x:Null}" BorderBrush="{x:Null}" Margin="10,8,0,0" Cursor="Hand">
+            <Image Height="60" Source="/fotky/home_button.png" Stretch="Fill" Width="60"/>
+        </Button>
+
+        <!-- Alenka dialog panel (left) -->
+        <Border Style="{StaticResource DialogPanel}" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="40,0,0,40" Width="280" Height="350" Grid.Row="1">
+            <StackPanel>
+                <Image Source="./fotky/alenka.png" Height="120" Width="120" Stretch="Uniform" Margin="0,0,0,10"/>
+                <TextBlock Text="Alenka" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="22" HorizontalAlignment="Center" FontWeight="Bold"/>
+                <TextBlock x:Name="alenka_dialog" Style="{StaticResource DialogText}" FontSize="15" Margin="0,8,0,0"
+                           Text="Vítej v mém obchodě! Mám tu pro tebe zbraně, brnění i lektvary. Vyber si co potřebuješ na svou cestu!"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Shop items panel (right) -->
+        <Border Style="{StaticResource DialogPanel}" HorizontalAlignment="Right" VerticalAlignment="Stretch" Margin="0,10,30,30" Width="880" Grid.Row="1">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Text="Alenčin Obchod" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="28" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                <ScrollViewer Grid.Row="1" VerticalScrollBarVisibility="Auto">
+                    <ItemsControl x:Name="shopItemsControl">
+                        <ItemsControl.ItemsPanel>
+                            <ItemsPanelTemplate>
+                                <WrapPanel/>
+                            </ItemsPanelTemplate>
+                        </ItemsControl.ItemsPanel>
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <Border Style="{StaticResource ItemCard}" Width="260" Margin="5">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="70"/>
+                                            <ColumnDefinition Width="*"/>
+                                        </Grid.ColumnDefinitions>
+                                        <Image Source="{Binding ImagePath}" Height="60" Width="60" Stretch="Uniform" Margin="0,0,8,0"/>
+                                        <StackPanel Grid.Column="1">
+                                            <TextBlock Text="{Binding Name}" Foreground="White" FontFamily="Viner Hand ITC" FontSize="16" FontWeight="Bold"/>
+                                            <TextBlock Text="{Binding Description}" Foreground="#CCCCCC" FontFamily="Viner Hand ITC" FontSize="11" TextWrapping="Wrap" MaxHeight="32"/>
+                                            <StackPanel Orientation="Horizontal" Margin="0,4,0,0">
+                                                <TextBlock Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="14">
+                                                    <Run Text="{Binding Price}"/>
+                                                    <Run Text=" Gold"/>
+                                                </TextBlock>
+                                                <TextBlock Foreground="#88AAFFAA" FontFamily="Viner Hand ITC" FontSize="12" Margin="10,0,0,0">
+                                                    <Run Text="+"/>
+                                                    <Run Text="{Binding StatBonus}"/>
+                                                    <Run Text=" "/>
+                                                    <Run Text="{Binding Type}"/>
+                                                </TextBlock>
+                                            </StackPanel>
+                                            <Button Content="Koupit" Style="{StaticResource ShopBuyButton}" HorizontalAlignment="Left" Margin="0,4,0,0" Tag="{Binding}" Click="Buy_Item_Click"/>
+                                        </StackPanel>
+                                    </Grid>
+                                </Border>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </ScrollViewer>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>

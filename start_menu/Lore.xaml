@@ -1,0 +1,30 @@
+﻿<Page x:Class="game.Lore"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:game"
+      mc:Ignorable="d" 
+      d:DesignHeight="450" d:DesignWidth="800"
+      Title="lore">
+
+    <Grid>
+        <Image Stretch="Fill" Source="\fotky\homepage.png"/>
+        <Button HorizontalAlignment="Left"  Margin="321,389,319,9" VerticalAlignment="Top" Click="Button_Click_1" BorderThickness="0,0,0,0" Foreground="Red">
+            <Button.BorderBrush>
+                <SolidColorBrush Color="#FF707070" Opacity="0"/>
+            </Button.BorderBrush>
+            <Button.Background>
+                <SolidColorBrush Color="#FFC54949" Opacity="0"/>
+            </Button.Background>
+            <Image Height="52" Stretch="Fill" Source="\fotky\button.png" Width="160" Cursor="" IsHitTestVisible="False "/>
+        </Button>
+        <Label Content="BACK" HorizontalAlignment="Center" Margin="0,399,0,0" VerticalAlignment="Top" Cursor="Hand" FontFamily="Viner Hand ITC" FontSize="20" FontWeight="Bold" Foreground="#FFD4D4D4"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="266" Width="634" Background="#FFA4A4A4" Foreground="#FF3A3A3A" Opacity="0.5"/>
+        <TextBlock HorizontalAlignment="Center" TextWrapping="Wrap" VerticalAlignment="Center" Height="266" Width="634" Foreground="White" FontFamily="Viner Hand ITC" FontSize="20"><Run Language="cs-cz" Text="Už tě nebaví poslouchat ty politické kecy co říkají v médiích? Pojď to změnit! Služ našemu pánovi Mílovi a pomáhej mu plnit jeho někdy i zapeklité úkoly. Na tvé cestě tě budu provázet já, Jo promiň, ještě jsem se nepředstavil, jmenuji se Pastýř a rád ti pomůžu se vším s čím si nebudeš vědět rady. Máme v našem krásném městě několik nepřátel, kteří každým dnem sílí a připravují se na svrhnutí naší vlády! Pomoz nám!!!"/></TextBlock>
+       
+
+
+
+    </Grid>
+</Page>

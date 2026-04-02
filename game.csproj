@@ -1,0 +1,217 @@
+<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UseWPF>true</UseWPF>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fotky\alenka.png" />
+    <None Remove="fotky\arena.jpg" />
+    <None Remove="fotky\arrow_in.png" />
+    <None Remove="fotky\bgame.png" />
+    <None Remove="fotky\button.png" />
+    <None Remove="fotky\close_button.png" />
+    <None Remove="fotky\dealeros.png" />
+    <None Remove="fotky\dealeros_postava.png" />
+    <None Remove="fotky\dealeros_postava_velka.png" />
+    <None Remove="fotky\flakanec.png" />
+    <None Remove="fotky\flakanec_postava.png" />
+    <None Remove="fotky\frame.png" />
+    <None Remove="fotky\frame_dealeros.png" />
+    <None Remove="fotky\homepage.png" />
+    <None Remove="fotky\home_button.png" />
+    <None Remove="fotky\hrad.png" />
+    <None Remove="fotky\letadlo.png" />
+    <None Remove="fotky\Milos.png" />
+    <None Remove="fotky\Milos_akavrko.jpg" />
+    <None Remove="fotky\most.png" />
+    <None Remove="fotky\obchod.png" />
+    <None Remove="fotky\obchod_inter.png" />
+    <None Remove="fotky\piggy_money.png" />
+    <None Remove="fotky\profile_foto.png" />
+    <None Remove="fotky\save.png" />
+    <None Remove="fotky\save_bt.png" />
+    <None Remove="fotky\taska.png" />
+    <None Remove="fotky\zpevak.png" />
+    <None Remove="fotky\zpevak_velky.png" />
+    <None Remove="fotky\macheta.png" />
+    <None Remove="fotky\hul.png" />
+    <None Remove="fotky\pero.png" />
+    <None Remove="fotky\kyvadlo.png" />
+    <None Remove="fotky\cibule.png" />
+    <None Remove="fotky\pullitr.png" />
+    <None Remove="fotky\rybicka.png" />
+    <None Remove="fotky\strojek.png" />
+    <None Remove="fotky\pultik.png" />
+    <None Remove="fotky\zlodej.png" />
+    <None Remove="fotky\bezdak.png" />
+    <None Remove="fotky\pastyr.png" />
+    <None Remove="fotky\bures.png" />
+    <None Remove="fotky\flakanec_ruka.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="tasks.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\flakanec.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\flakanec_postava.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fotky\alenka.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\arena.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\arrow_in.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\letadlo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\obchod.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fotky\close_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\dealeros.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\dealeros_postava_velka.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\frame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\frame_dealeros.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\home_button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\hrad.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="MaterialDesignThemes" Version="4.3.0" />
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="6.0.4" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.8.116" />
+    <PackageReference Include="System.Data.SQLite" Version="1.0.115.5" />
+    <PackageReference Include="System.Data.SQLite.Core" Version="1.0.115.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fotky\bgame.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fotky\homepage.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\Milos.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\Milos_akavrko.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\most.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\obchod_inter.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\piggy_money.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\profile_foto.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\save.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\save_bt.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\taska.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\zpevak.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\zpevak_velky.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="players.db">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="fotky\macheta.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\hul.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\pero.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\kyvadlo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\cibule.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\pullitr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\rybicka.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\strojek.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\pultik.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\zlodej.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\bezdak.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\pastyr.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\bures.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="fotky\flakanec_ruka.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="hlavni_casti\" />
+  </ItemGroup>
+
+</Project>

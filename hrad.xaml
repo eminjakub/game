@@ -1,0 +1,157 @@
+<Page x:Class="game.Hrad"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:game"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="hrad">
+
+    <Canvas>
+        <Image Height="720" Stretch="Fill" Source="./fotky/hrad.png" Width="1280"/>
+
+        <!-- Home button -->
+        <Button Canvas.Left="10" Canvas.Top="10" Height="79" Width="78" Click="get_home" Background="{x:Null}" BorderBrush="{x:Null}" Cursor="Hand">
+            <Image Height="69" Source="/fotky/home_button.png" Stretch="Fill" Width="68"/>
+        </Button>
+
+        <!-- Miloš clickable -->
+        <Button x:Name="milos_button" Canvas.Left="500" Canvas.Top="360" Height="255" Width="280"
+                BorderThickness="0" Background="{x:Null}" BorderBrush="{x:Null}"
+                Click="Button_Click" Cursor="Hand">
+            <Image x:Name="milos_button_img" Height="174" Stretch="Fill" Source="./fotky/Milos_akavrko.jpg" Width="208"/>
+        </Button>
+
+        <!-- Bureš clickable - stojí vlevo od Miloše -->
+        <Button x:Name="bures_button" Canvas.Left="200" Canvas.Top="400" Height="230" Width="200"
+                BorderThickness="0" Background="{x:Null}" BorderBrush="{x:Null}"
+                Click="Bures_Click" Cursor="Hand">
+            <Image Height="180" Stretch="Uniform" Source="./fotky/bures.png" Width="160"/>
+        </Button>
+        <!-- Jmenovka pod Burešem -->
+        <Border Canvas.Left="190" Canvas.Top="620" Background="#CC000000" BorderBrush="#88FFD700" BorderThickness="1" CornerRadius="4" Padding="6,2">
+            <TextBlock Text="Bureš" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="14" FontWeight="Bold"/>
+        </Border>
+
+        <!-- Miloš uvítací dialog -->
+        <Border x:Name="milos_greeting" Canvas.Left="350" Canvas.Top="180" Visibility="Hidden"
+                Background="#DD2A2A2A" BorderBrush="#88FFFFFF" BorderThickness="2" CornerRadius="8" Padding="15" Width="580">
+            <StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="./fotky/Milos.png" Height="100" Width="100" Stretch="Uniform" Margin="0,0,15,0"/>
+                    <StackPanel VerticalAlignment="Center">
+                        <TextBlock Text="Prezident Miloš" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="24" FontWeight="Bold"/>
+                        <TextBlock TextWrapping="Wrap" Foreground="White" FontFamily="Viner Hand ITC" FontSize="16" Width="400" Margin="0,5,0,0"
+                                   Text="Vítej na mém hradě! Mám pro tebe důležité úkoly. Česká republika tě potřebuje! Klikni na mě pro přidělení mise."/>
+                    </StackPanel>
+                </StackPanel>
+                <Button Content="Rozumím!" Style="{StaticResource GameButton}" HorizontalAlignment="Right" Margin="0,10,0,0" Click="milos_greeting_close"/>
+            </StackPanel>
+        </Border>
+
+        <!-- Quest frame (Miloš) -->
+        <TextBlock x:Name="quest_box" Canvas.Left="239" Canvas.Top="275" TextWrapping="Wrap" Height="359" Width="768"
+                   Background="#DD2A2A2A" RenderTransformOrigin="0.5,0.5" Opacity="0.95" Visibility="Hidden"/>
+        <Image x:Name="quest_milos" Height="218" Canvas.Left="252" Stretch="Fill" Source="./fotky/Milos.png" Canvas.Top="337" Width="243" Visibility="Hidden"/>
+        <Image x:Name="frame" Height="564" Canvas.Left="205" Stretch="Fill" Source="./fotky/frame.png" Canvas.Top="170" Width="825" Visibility="Hidden"/>
+        <Button x:Name="close_button" Canvas.Left="942" Canvas.Top="579" Height="36" Width="46"
+                Background="{x:Null}" BorderBrush="{x:Null}" Click="milos_quest_close" Visibility="Hidden" Cursor="Hand">
+            <Image x:Name="close_button_img" Height="31" Stretch="Fill" Source="./fotky/close_button.png" Width="38" Visibility="Hidden"/>
+        </Button>
+        <Button x:Name="task_1" Canvas.Left="551" Canvas.Top="347" Height="208" Width="338"
+                Click="Button_Click_2" Visibility="Hidden" Background="#CC333333" BorderBrush="#88FFFFFF" Cursor="Hand"/>
+        <Label x:Name="task_name_label" Content="Nazev tasku" Canvas.Left="578" Canvas.Top="363"
+               Visibility="Hidden" FontFamily="Viner Hand ITC" Height="39" Width="325" FontSize="20" Foreground="White"/>
+        <Label x:Name="task_lenght_label" Content="Delka tasku" Canvas.Left="564" Canvas.Top="508"
+               Visibility="Hidden" FontFamily="Viner Hand ITC" FontSize="20" Foreground="#CCCCCC"/>
+        <Label x:Name="task_money_label" Visibility="Hidden" Content="Penize" Canvas.Left="766" Canvas.Top="509"
+               FontFamily="Viner Hand ITC" Width="112" FontSize="20" Height="31" Foreground="#FFFFD700"/>
+        <TextBlock x:Name="task_description_label" Visibility="Hidden" Canvas.Left="604" TextWrapping="Wrap"
+                   Canvas.Top="407" Height="102" Width="236" FontFamily="Viner Hand ITC" FontSize="15" Foreground="#DDDDDD"/>
+
+        <!-- ====== BUREŠ PANEL - dialog + kostky ====== -->
+        <Border x:Name="bures_panel" Canvas.Left="80" Canvas.Top="50" Visibility="Hidden"
+                Background="#EE111111" BorderBrush="#88FFD700" BorderThickness="2" CornerRadius="10"
+                Width="1100" Height="610">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="280"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Levý sloupec - portrét + dialog Bureše -->
+                <Border Background="#CC1A1A1A" CornerRadius="8" Margin="12,12,6,12" Padding="12">
+                    <StackPanel>
+                        <Image Source="./fotky/bures.png" Height="130" Width="120" Stretch="Uniform" HorizontalAlignment="Center" Margin="0,0,0,8"/>
+                        <TextBlock Text="Bureš" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="22" FontWeight="Bold" HorizontalAlignment="Center"/>
+                        <TextBlock x:Name="bures_dialog" Foreground="White" FontFamily="Viner Hand ITC" FontSize="14"
+                                   TextWrapping="Wrap" Margin="0,10,0,0"
+                                   Text="Podívejte, já nevím proč mi tady říkáte Bureš. Já jsem normální člověk, prostý zemědělec. Já jsem to neudělal!"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Pravý sloupec - hra v kostky -->
+                <Border Grid.Column="1" Background="#CC1A1A1A" CornerRadius="8" Margin="6,12,12,12" Padding="15">
+                    <StackPanel>
+                        <TextBlock Text="Hra v kostky" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="26" FontWeight="Bold" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+                        <!-- Stav peněz -->
+                        <Border Background="#CC2A2A2A" CornerRadius="6" Padding="10,6" Margin="0,0,0,12" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <Image Source="/fotky/piggy_money.png" Height="28" Width="28" Margin="0,0,8,0"/>
+                                <TextBlock Text="Tvoje peníze: " Foreground="#AAAAAA" FontFamily="Viner Hand ITC" FontSize="18" VerticalAlignment="Center"/>
+                                <TextBlock x:Name="bures_money_label" Text="0" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="20" FontWeight="Bold" VerticalAlignment="Center"/>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Sázka -->
+                        <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,14">
+                            <TextBlock Text="Sázka: " Foreground="White" FontFamily="Viner Hand ITC" FontSize="18" VerticalAlignment="Center" Margin="0,0,8,0"/>
+                            <Button Content="50" Style="{StaticResource GameButton}" Click="Bet_50" Margin="4,0" x:Name="bet_50_btn"/>
+                            <Button Content="100" Style="{StaticResource GameButton}" Click="Bet_100" Margin="4,0" x:Name="bet_100_btn"/>
+                            <Button Content="200" Style="{StaticResource GameButton}" Click="Bet_200" Margin="4,0" x:Name="bet_200_btn"/>
+                            <Border x:Name="bet_indicator" Background="#CC2E7D32" CornerRadius="4" Padding="8,4" Margin="10,0,0,0" VerticalAlignment="Center">
+                                <TextBlock x:Name="bet_label" Text="50" Foreground="White" FontFamily="Viner Hand ITC" FontSize="16"/>
+                            </Border>
+                        </StackPanel>
+
+                        <!-- Kostky zobrazení -->
+                        <Border Background="#CC222222" CornerRadius="8" Padding="15,10" Margin="0,0,0,14" HorizontalAlignment="Center">
+                            <StackPanel Orientation="Horizontal">
+                                <StackPanel Margin="0,0,30,0" HorizontalAlignment="Center">
+                                    <TextBlock Text="Ty" Foreground="#FF66FF66" FontFamily="Viner Hand ITC" FontSize="16" HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="player_dice" Text="?" Foreground="White" FontFamily="Viner Hand ITC" FontSize="64" FontWeight="Bold" HorizontalAlignment="Center" Width="80" TextAlignment="Center"/>
+                                    <TextBlock x:Name="player_dice_label" Text="" Foreground="#AAAAAA" FontFamily="Viner Hand ITC" FontSize="13" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                                <TextBlock Text="vs" Foreground="#AAAAAA" FontFamily="Viner Hand ITC" FontSize="30" VerticalAlignment="Center" Margin="0,0,30,0"/>
+                                <StackPanel HorizontalAlignment="Center">
+                                    <TextBlock Text="Bureš" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="16" HorizontalAlignment="Center"/>
+                                    <TextBlock x:Name="bures_dice" Text="?" Foreground="#FFFFD700" FontFamily="Viner Hand ITC" FontSize="64" FontWeight="Bold" HorizontalAlignment="Center" Width="80" TextAlignment="Center"/>
+                                    <TextBlock x:Name="bures_dice_label" Text="" Foreground="#AAAAAA" FontFamily="Viner Hand ITC" FontSize="13" HorizontalAlignment="Center"/>
+                                </StackPanel>
+                            </StackPanel>
+                        </Border>
+
+                        <!-- Výsledek -->
+                        <TextBlock x:Name="dice_result_text" Text="" Foreground="#FFFFD700" FontFamily="Viner Hand ITC"
+                                   FontSize="22" FontWeight="Bold" HorizontalAlignment="Center" TextWrapping="Wrap"
+                                   TextAlignment="Center" Margin="0,0,0,10" MinHeight="30"/>
+
+                        <!-- Hodit kostkou button -->
+                        <Button x:Name="roll_button" Content="Hodit kostkou!" Style="{StaticResource GameButton}"
+                                HorizontalAlignment="Center" FontSize="20" Padding="20,8" Click="Roll_Dice_Click"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Zavřít -->
+                <Button Click="Bures_Close" HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Margin="0,8,8,0" Height="40" Width="40" Background="{x:Null}" BorderBrush="{x:Null}"
+                        Grid.Column="1" Cursor="Hand">
+                    <Image Height="32" Source="/fotky/close_button.png" Stretch="Fill" Width="32"/>
+                </Button>
+            </Grid>
+        </Border>
+
+    </Canvas>
+</Page>

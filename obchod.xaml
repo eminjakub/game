@@ -1,0 +1,76 @@
+<Page
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:game"
+      x:Class="game.Obchod"
+      mc:Ignorable="d" 
+      d:DesignHeight="720" d:DesignWidth="1280"
+      Title="Obchod" Height="720" Width="1280">
+
+    <Grid>
+        <Image Stretch="Fill" Source="./fotky/obchod.png" Margin="-15,0,0,0"/>
+
+        <!-- Zpěvák clickable sprite -->
+        <Button x:Name="zpevak_bt_action" HorizontalAlignment="Left" Margin="462,346,0,0"
+                VerticalAlignment="Top" Height="120" Width="205"
+                Background="{x:Null}" Foreground="{x:Null}" BorderBrush="{x:Null}"
+                Click="zpevak_action" Cursor="Hand">
+            <Image Height="109" Stretch="Fill" Source="./fotky/zpevak_velky.png" Width="176"/>
+        </Button>
+
+        <!-- Arrow into shop -->
+        <Button x:Name="obchod_in_bt" HorizontalAlignment="Left" Margin="934,316,0,0"
+                VerticalAlignment="Top" Height="135" Width="146"
+                Background="{x:Null}" BorderBrush="{x:Null}" Foreground="{x:Null}"
+                Click="button_in_shop" Cursor="Hand">
+            <Image Height="135" Stretch="Fill" Source="/fotky/arrow_in.png" Width="171"/>
+        </Button>
+
+        <!-- Home button -->
+        <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"
+                Height="80" Width="80" Click="Get_home" BorderBrush="{x:Null}" Background="{x:Null}" Cursor="Hand">
+            <Image Height="70" Source="/fotky/home_button.png" Stretch="Fill" Width="70"/>
+        </Button>
+
+        <!-- Zpěvák dialog overlay - full panel, no fixed height -->
+        <Border x:Name="zpevak_dialog_panel" Visibility="Hidden"
+                Background="#EE111111" CornerRadius="10" Margin="180,80,180,80">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+
+                <!-- Portrait side -->
+                <Border Style="{StaticResource DialogPanel}" Margin="15,15,8,15">
+                    <StackPanel>
+                        <Image x:Name="zpevak_img" Source="./fotky/zpevak.png" Height="120" Width="100" Stretch="Uniform" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+                        <TextBlock Text="Zpěvák" Foreground="#FFBBAAFF" FontFamily="Viner Hand ITC" FontSize="20" FontWeight="Bold" HorizontalAlignment="Center"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Dialog side -->
+                <Border Style="{StaticResource DialogPanel}" Grid.Column="1" Margin="8,15,15,15">
+                    <StackPanel>
+                        <TextBlock Style="{StaticResource DialogText}" FontSize="17" TextWrapping="Wrap">
+                            <Run Text="Ahoj, kamaráde! Hezky jsi přišel!"/><LineBreak/><LineBreak/>
+                            <Run Text="Víš co jsem slyšel? Říká se, že Miloš na hradě hledá někoho, kdo mu pomůže s pár úkoly. Prý za to dobře platí!"/><LineBreak/><LineBreak/>
+                            <Run Text="A určitě se koukni k Alence — je tu kousek dál, v tom krámku. Prodává vybavení, zbraně, brnění... prostě všechno, co potřebuješ na svojí cestu."/><LineBreak/><LineBreak/>
+                            <Run Text="Ale dej si pozor na toho podivného Dealera na mostě." Foreground="#FFFF9999"/><Run Text=" Ten tam stojí každý den a vypadá podezřele. Nevím co prodává, ale jistě to není nic legálního..." Foreground="#FFFF9999"/>
+                        </TextBlock>
+                        <Button Content="Díky za info!" Style="{StaticResource GameButton}" HorizontalAlignment="Right" Margin="0,15,0,0" Click="zpevak_close"/>
+                    </StackPanel>
+                </Border>
+
+                <!-- Close button -->
+                <Button Click="zpevak_close" HorizontalAlignment="Right" VerticalAlignment="Top"
+                        Margin="0,10,10,0" Height="44" Width="44"
+                        Background="{x:Null}" BorderBrush="{x:Null}" Grid.Column="1" Cursor="Hand">
+                    <Image Height="36" Source="/fotky/close_button.png" Stretch="Fill" Width="36"/>
+                </Button>
+            </Grid>
+        </Border>
+    </Grid>
+</Page>
